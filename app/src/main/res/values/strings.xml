@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Android2</string>
+    <string name="app_name" translatable="false">Новая запись</string>
+    <string name="search" translatable="false">Название</string>
+    <string name="prior" translatable="false">Приоритет</string>
+    <string name="plus" translatable="false">+</string>
+
 </resources>
