@@ -7,10 +7,16 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/lulu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="end"
-        android:orientation="vertical">
+        android:background="@drawable/background_with_shadow"
+        android:backgroundTint="@color/White"
+        android:backgroundTintMode="screen"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -22,12 +28,13 @@
                 android:layout_width="314dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:backgroundTintMode="screen"
                 android:background="@color/White"
                 android:backgroundTint="@color/White"
+                android:backgroundTintMode="screen"
                 android:fontFamily="sans-fantasy-medium"
                 android:hint="@string/search"
                 android:lineSpacingExtra="10sp"
+                android:padding="8dp"
                 android:textColorHint="#61000000"
                 android:textSize="16sp"
                 android:textStyle="normal"></EditText>
@@ -35,30 +42,32 @@
             <Button
                 android:id="@+id/btnAdd"
                 android:layout_width="43dp"
-                android:backgroundTint="@color/White"
                 android:layout_height="43dp"
                 android:layout_gravity="end"
                 android:layout_margin="20dp"
                 android:background="@color/White"
+                android:backgroundTint="@color/White"
                 android:text="@string/plus"
                 android:textColor="@color/Dark"
                 android:textSize="19sp"></Button>
         </FrameLayout>
 
 
-            <TextView
-                android:id="@+id/etPrior"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:background="@color/White"
-                android:text="@string/prior"
-                android:textColor="@color/Dark"></TextView>
+        <TextView
+            android:id="@+id/etPrior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20sp"
+            android:padding="4sp"
+            android:text="@string/prior"
+            android:textColor="@color/Dark"
+            android:textSize="14sp"
+            android:textStyle="normal"></TextView>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/bg" />
-        </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
