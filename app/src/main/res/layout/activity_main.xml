@@ -25,24 +25,25 @@
 
             <EditText
                 android:id="@+id/etName"
-                android:layout_width="314dp"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
+                android:layout_marginRight="60dp"
+                android:layout_weight="1"
                 android:background="@color/White"
                 android:backgroundTint="@color/White"
                 android:backgroundTintMode="screen"
-                android:fontFamily="sans-fantasy-medium"
                 android:hint="@string/search"
                 android:lineSpacingExtra="10sp"
-                android:padding="8dp"
+                android:padding="16dp"
                 android:textColorHint="#61000000"
                 android:textSize="16sp"
                 android:textStyle="normal"></EditText>
 
             <Button
                 android:id="@+id/btnAdd"
-                android:layout_width="43dp"
-                android:layout_height="43dp"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
                 android:layout_gravity="end"
                 android:layout_margin="20dp"
                 android:background="@color/White"
