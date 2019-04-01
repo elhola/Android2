@@ -6,13 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="311dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:backgroundTint="@color/White"
+                android:fontFamily="sans-fantasy-medium"
+                android:hint="@string/search"
+                android:lineSpacingExtra="10sp"
+                android:textColorHint="#61000000"
+                android:textSize="16sp"
+                android:textStyle="normal"></EditText>
+
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:layout_gravity="end"
+                android:layout_margin="20dp"
+                android:background="@color/White"
+                android:text="@string/plus"
+                android:textColor="@color/Dark"
+                android:textSize="19sp"></Button>
+        </FrameLayout>
+
+
+            <TextView
+                android:id="@+id/etPrior"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@color/White"
+                android:text="@string/prior"
+                android:textColor="@color/Dark"></TextView>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg" />
+        </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
