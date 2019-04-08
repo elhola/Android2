@@ -5,7 +5,6 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.Layout;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -31,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView textView = findViewById(R.id.etPrior);
 
-        Spannable sp = new SpannableString("• Приоритет");
+        Spannable sp = new SpannableString("•  Приоритет");
         sp.setSpan(new RelativeSizeSpan(1), 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         sp.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.orangey_red)), 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         sp.setSpan(new StyleSpan(Typeface.BOLD), 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
