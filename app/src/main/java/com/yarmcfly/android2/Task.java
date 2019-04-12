@@ -1,6 +1,9 @@
 package com.yarmcfly.android2;
 
-public class Task {
+import java.io.Serializable;
+
+public class Task implements Serializable {
+    private static final long serialVersionUID = 2975820333949550622L;
     private final String name;
     private final int priority;
     private final int color;
