@@ -1,17 +1,16 @@
-package com.yarmcfly.android2;
+package com.yarmcfly.android2.taskmanager;
 
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+
+import com.yarmcfly.android2.R;
 
 
 public class TasksActivity extends AppCompatActivity {

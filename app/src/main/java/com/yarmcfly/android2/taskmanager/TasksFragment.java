@@ -1,7 +1,8 @@
-package com.yarmcfly.android2;
+package com.yarmcfly.android2.taskmanager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -13,18 +14,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.yarmcfly.android2.R;
+import com.yarmcfly.android2.db.Task;
+import com.yarmcfly.android2.db.TaskDao;
+import com.yarmcfly.android2.db.AppDatabase;
 
 import static android.app.Activity.RESULT_OK;
 
 public class TasksFragment extends Fragment {
     public static final int ADD_TASK_REQUEST_CODE = 101;
+    private TasksAdapter adapter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        LayoutInflater layoutInflater =LayoutInflater.from(getContext());
+        LayoutInflater layoutInflater = LayoutInflater.from(getContext());
         View view = layoutInflater.inflate(R.layout.fragment_tasks, container, false);
         return view;
     }
@@ -33,7 +37,7 @@ public class TasksFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        RecyclerView rv ;
+        RecyclerView rv;
         FloatingActionButton fab;
 
         fab = view.findViewById(R.id.fab);
@@ -47,34 +51,43 @@ public class TasksFragment extends Fragment {
         rv = view.findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
-        TasksAdapter adapter = new TasksAdapter(new TaskClickListener() {
-            @Override public void onClick(Task task) {
-                String taskText = task.getName() + " in progress...";
-                Toast.makeText(getContext(), taskText, Toast.LENGTH_SHORT).show();
+        adapter = new TasksAdapter(new TaskClickListener() {
+            @Override
+            public void onClick(Task task) {
+                Toast.makeText(getContext(), task.name + " in progress..", Toast.LENGTH_SHORT).show();
             }
         });
         rv.setAdapter(adapter);
-        adapter.seData(generatedFakeData());
+        getLatestTasks();
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ADD_TASK_REQUEST_CODE && resultCode == RESULT_OK){
-            if (data != null){
-                Task task = ((Task) data.getSerializableExtra(Task.class.getName()));
-                Toast.makeText(getContext(), task.getName(), Toast.LENGTH_SHORT).show();
+        if (requestCode == ADD_TASK_REQUEST_CODE && resultCode == RESULT_OK) {
+            if (data != null) {
+                insertTask(data);
+                getLatestTasks();
             }
         }
     }
 
-    public List<Task> generatedFakeData(){
-        List<Task> tasks = new ArrayList<>();
-        for (int i = 0; i < 50; i++) {
-            int colorOfTaskPiority = (int) (10*Math.random());
-            tasks.add( new Task("Task #"+i+"  ",3,colorOfTaskPiority));
+    private void getLatestTasks() {
+        Context context = getContext();
+        if (context != null) {
+            AppDatabase db = App.getApp(context).getDb();
+            TaskDao taskDao = db.taskDao();
+            adapter.seData(taskDao.getAll());
         }
-        return  tasks;
     }
 
+    private void insertTask(Intent data) {
+        Task task = ((Task) data.getSerializableExtra(Task.class.getName()));
+        Context context = getContext();
+        if (context != null) {
+            AppDatabase db = App.getApp(context).getDb();
+            TaskDao taskDao = db.taskDao();
+            taskDao.insert(task);
+        }
+    }
 }
