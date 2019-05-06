@@ -72,8 +72,14 @@ public class AddTaskActivity extends AppCompatActivity {
     }
     // у атрибута пункта меню email установлено значение android:onClick="onEmailMenuClick"
     public void onEmailMenuClick(MenuItem item) {
-        TextView infoTextView = (TextView) findViewById(R.id.etName);
-        infoTextView.setText("почта разработчика: yarmcfly@gmail.com");
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("plain/text");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[] {  "yarmcfly@gmail.address" });
+        intent.putExtra(Intent.EXTRA_SUBJECT, "subject");
+        intent.putExtra(Intent.EXTRA_TEXT, "yarmcfly@gmail.com");
+        startActivity(Intent.createChooser(intent, ""));
+        //TextView infoTextView = (TextView) findViewById(R.id.etName);
+       // infoTextView.setText("почта разработчика: yarmcfly@gmail.com");
     }
 
 
