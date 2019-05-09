@@ -56,4 +56,5 @@ public class TasksAdapter extends RecyclerView.Adapter<TaskViewHolder> {
         this.data.addAll(data);
         notifyDataSetChanged();
     }
+
 }

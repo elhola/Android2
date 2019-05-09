@@ -1,5 +1,6 @@
 package com.yarmcfly.android2.taskmanager;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,9 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.yarmcfly.android2.R;
 
@@ -50,4 +54,6 @@ public class TasksActivity extends AppCompatActivity {
             return 2;
         }
     }
+
+
 }
