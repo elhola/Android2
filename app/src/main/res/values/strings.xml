@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name" translatable="false">Задачник</string>
+    <string name="app_name" translatable="false">TaskManager</string>
     <string name="search" translatable="false">Название</string>
     <string name="prior" translatable="false">Приоритет</string>
     <string name="plus" translatable="false">+</string>
-    <string name="action_settings">Settings</string>
-    <string name="action_email">contact the developer</string>
+    <string name="settings">settings</string>
+    <string name="email">email</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
